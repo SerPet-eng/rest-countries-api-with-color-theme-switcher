@@ -1,0 +1,113 @@
+$clr-Neutral-900: hsl(200, 15%, 8%); // Light Mode Text
+$clr-Neutral-800: hsl(209, 23%, 22%); // Dark Mode Elements
+$clr-Neutral-700: hsl(207, 26%, 17%); // Dark Mode Background
+$clr-Neutral-600: hsl(0, 0%, 52%); // Light Mode Input
+$clr-Neutral-500: hsl(0, 0%, 98%); // Light Mode Background
+$clr-Neutral-400: hsl(0, 0%, 100%); // Light Mode Elements & Dark Mode Text
+
+$fs-16px: 16px; // Detail Page
+$fs-14px: 14px; // Homepage Items
+
+$fw-800: 800;
+$fw-600: 600;
+$fw-300: 300;
+
+$ff-Nunito: 'Nunito', Arial, sans-serif;
+
+@mixin flex-space-between() {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+@mixin navbar-style($bgColor) {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1rem 5rem;
+  border-bottom: 2px solid rgba(173, 172, 172, 0.336);
+  background-color: $bgColor;
+}
+
+@mixin category-style($bgColor) {
+  border: none;
+  background-color: $bgColor;
+  box-shadow: 0 0 5px $clr-Neutral-600;
+
+  padding: 0.5rem;
+  cursor: pointer;
+}
+
+@mixin card-container-grid-style($min, $max) {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax($min, $max));
+  place-content: center;
+  gap: 4rem;
+  margin-top: 5%;
+}
+
+@mixin card-style($bg-Color) {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  background-color: $bg-Color;
+  border-radius: 5px;
+  box-shadow: 0 0 5px $clr-Neutral-600;
+  cursor: pointer;
+
+  transition: all 0.3s ease-in-out;
+  &:hover {
+    transform: scale(1.05);
+  }
+}
+
+@mixin back-button-style($bgColor, $txtColor) {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.1rem 1rem;
+  margin-bottom: 1rem;
+  border: none;
+  border-radius: 3px;
+  box-shadow: 0 0 3px $clr-Neutral-600;
+  background-color: $bgColor;
+  color: $txtColor;
+  cursor: pointer;
+
+  transition: all 0.3s ease-in-out;
+
+  &:hover {
+    transform: scale(1.1);
+  }
+}
+
+@mixin border-country-style($bgColor) {
+  flex: 1 1 1fr;
+  margin-right: 0.5rem;
+  padding: 0.1rem 0.5rem;
+  background-color: $bgColor;
+  box-shadow: 0 0 2px $clr-Neutral-800;
+  border: none;
+  border-radius: 3px;
+}
+
+@mixin flex-column-center() {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+@mixin pagination-style($min, $max) {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax($min, $max));
+  place-content: center;
+  gap: 1rem;
+  text-align: center;
+  list-style: none;
+}
+
+@mixin pagination-active-style($bgColor, $txtColor) {
+  background-color: $bgColor;
+  color: $txtColor;
+}

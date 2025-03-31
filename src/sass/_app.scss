@@ -1,0 +1,18 @@
+@use './variables' as *;
+
+.app {
+  font-family: $ff-Nunito;
+  height: 100vh;
+
+  transition: all 0.2s ease-in-out;
+
+  &.light-mode {
+    background-color: $clr-Neutral-400;
+    color: $clr-Neutral-900;
+  }
+
+  &.dark-mode {
+    background-color: $clr-Neutral-700;
+    color: $clr-Neutral-400;
+  }
+}

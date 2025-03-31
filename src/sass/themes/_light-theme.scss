@@ -1,0 +1,226 @@
+@use '../variables' as *;
+
+.light-mode {
+  background-color: red;
+  //* NAVIGATION BAR 🧭
+  .navbar {
+    @include navbar-style($clr-Neutral-400);
+
+    &-text {
+      font-size: 16px;
+      font-weight: $fw-800;
+    }
+
+    &-button {
+      border: none;
+      background-color: transparent;
+      cursor: pointer;
+
+      .button-content {
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+      }
+
+      .button-icon {
+        width: 30px;
+        height: 30px;
+      }
+    }
+  }
+
+  @media (max-width: 760px) {
+    .navbar {
+      padding: 1rem;
+    }
+  }
+
+  //* CONTAINER 🫙
+  .container {
+    background-color: $clr-Neutral-500;
+    padding: 2rem;
+
+    .search-filter-container {
+      @include flex-space-between();
+      margin: 1rem auto;
+    }
+  }
+
+  @media (max-width: 760px) {
+    .container {
+      padding: 1rem;
+    }
+  }
+
+  //* SEARCH BAR 🔍
+  .search-bar {
+    width: 30%;
+
+    box-shadow: 0 0 5px $clr-Neutral-600;
+
+    &-label {
+      display: flex;
+      align-items: center;
+      background-color: $clr-Neutral-400;
+      border-radius: 5px;
+    }
+
+    .search-icon {
+      display: flex;
+      align-items: center;
+      width: 30px;
+      height: 30px;
+      padding: 0.5rem;
+    }
+
+    .search-input {
+      width: 100%;
+      padding: 0.5rem;
+      border: none;
+      border-radius: 0 5px 5px 0;
+    }
+  }
+
+  //* CATEGORIES 🗃️
+  .category-container {
+    @include category-style($clr-Neutral-400);
+  }
+
+  //* CARD CONTAINER 🎴🫙
+  .card-container {
+    @include card-container-grid-style(150px, 300px);
+
+    .card {
+      @include card-style($clr-Neutral-400);
+
+      transition: all 0.3s ease-in-out;
+      &:hover {
+        transform: scale(1.05);
+      }
+
+      .card-image {
+        border-radius: 5px 5px 0 0;
+        width: 100%;
+        height: 200px;
+        object-fit: cover;
+      }
+
+      .card-description {
+        padding: 1rem;
+
+        .card-title {
+          margin: auto 0 1rem;
+        }
+      }
+    }
+  }
+
+  //* CONTENT PREVIEW 🗃️🔭
+
+  .content-preview {
+    margin-top: 3rem;
+
+    &__back-button {
+      @include back-button-style($clr-Neutral-400, $clr-Neutral-900);
+
+      .button-icon {
+        width: 20px;
+        height: 20px;
+      }
+    }
+
+    &__container {
+      display: flex;
+      gap: 5%;
+
+      .container-image {
+        width: 40%;
+      }
+
+      .content-preview__container-description {
+        width: 100%;
+
+        padding: 1rem;
+
+        display: grid;
+        align-items: center;
+        grid-template-columns: repeat(2, 1fr);
+
+        .description-title {
+          grid-column: 1 / -1;
+        }
+
+        .description-details-left,
+        .description-details-right,
+        .description-details-border {
+          p {
+            .description-details__label {
+              font-weight: $fw-800;
+            }
+          }
+        }
+
+        .description-details-border {
+          grid-column: 1 / -1;
+
+          .borders {
+            display: inline-flex;
+            gap: 0.5rem;
+            flex-wrap: wrap;
+
+            span {
+              @include border-country-style($clr-Neutral-400);
+            }
+          }
+        }
+      }
+    }
+  }
+
+  @media (max-width: 760px) {
+    .content-preview {
+      &__container {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        gap: 5%;
+
+        .container-image {
+          width: 100%;
+        }
+
+        .content-preview__container-description {
+          place-content: center;
+
+          grid-template-columns: repeat(1, 1fr);
+          gap: 1.5rem;
+        }
+      }
+    }
+  }
+
+  //* PAGINATION 📄
+  .pagination {
+    grid-column: 1 / -1;
+    @include pagination-style(15px, 20px);
+
+    li {
+      font-weight: $fw-600;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+
+      transition: all 0.3s ease-in-out;
+
+      &:hover {
+        color: $clr-Neutral-400;
+        background-color: $clr-Neutral-900;
+      }
+    }
+
+    .active {
+      @include pagination-active-style($clr-Neutral-900, $clr-Neutral-400);
+    }
+  }
+}
