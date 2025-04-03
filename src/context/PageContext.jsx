@@ -1,5 +1,6 @@
 import { useMemo } from 'react';
 import { useState, useEffect, useContext, createContext } from 'react';
+import { countriesData } from '../../public/data';
 
 const PageProvider = createContext();
 
@@ -24,10 +25,9 @@ export default function PageContext({ children }) {
   };
 
   //* Fetching Countries Data
-  const fetchData = async () => {
+  const fetchData = () => {
     try {
-      const response = await fetch('/public/data.json');
-      const data = await response.json();
+      const data = countriesData;
       if (data) return setCountries(data);
       setError(null);
     } catch (error) {
